@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7714C432-6B13-4BE4-BEE4-5DECADF54164}|Library.UI\\Library.UI.csproj|c:\\users\\user\\desktop\\clown\\testtask\\library\\library.ui\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7714C432-6B13-4BE4-BEE4-5DECADF54164}|Library.UI\\Library.UI.csproj|solutionrelative:library.ui\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7714C432-6B13-4BE4-BEE4-5DECADF54164}|Library.UI\\Library.UI.csproj|c:\\users\\user\\desktop\\clown\\testtask\\library\\library.ui\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7714C432-6B13-4BE4-BEE4-5DECADF54164}|Library.UI\\Library.UI.csproj|solutionrelative:library.ui\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314F7423-B93E-4BE5-910B-6D3718D7F684}|Library.Domain\\Library.Domain.csproj|c:\\users\\user\\desktop\\clown\\testtask\\library\\library.domain\\entities\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{314F7423-B93E-4BE5-910B-6D3718D7F684}|Library.Domain\\Library.Domain.csproj|C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\library.domain\\entities\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{314F7423-B93E-4BE5-910B-6D3718D7F684}|Library.Domain\\Library.Domain.csproj|solutionrelative:library.domain\\entities\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{314F7423-B93E-4BE5-910B-6D3718D7F684}|Library.Domain\\Library.Domain.csproj|C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\library.domain\\entities\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{314F7423-B93E-4BE5-910B-6D3718D7F684}|Library.Domain\\Library.Domain.csproj|solutionrelative:library.domain\\entities\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7714C432-6B13-4BE4-BEE4-5DECADF54164}|Library.UI\\Library.UI.csproj|c:\\users\\user\\desktop\\clown\\testtask\\library\\library.ui\\service\\libraryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7714C432-6B13-4BE4-BEE4-5DECADF54164}|Library.UI\\Library.UI.csproj|solutionrelative:library.ui\\service\\libraryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7714C432-6B13-4BE4-BEE4-5DECADF54164}|Library.UI\\Library.UI.csproj|c:\\users\\user\\desktop\\clown\\testtask\\library\\library.ui\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7714C432-6B13-4BE4-BEE4-5DECADF54164}|Library.UI\\Library.UI.csproj|solutionrelative:library.ui\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7714C432-6B13-4BE4-BEE4-5DECADF54164}|Library.UI\\Library.UI.csproj|c:\\users\\user\\desktop\\clown\\testtask\\library\\library.ui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7714C432-6B13-4BE4-BEE4-5DECADF54164}|Library.UI\\Library.UI.csproj|solutionrelative:library.ui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{314F7423-B93E-4BE5-910B-6D3718D7F684}|Library.Domain\\Library.Domain.csproj|c:\\users\\user\\desktop\\clown\\testtask\\library\\library.domain\\entities\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{314F7423-B93E-4BE5-910B-6D3718D7F684}|Library.Domain\\Library.Domain.csproj|solutionrelative:library.domain\\entities\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7714C432-6B13-4BE4-BEE4-5DECADF54164}|Library.UI\\Library.UI.csproj|c:\\users\\user\\desktop\\clown\\testtask\\library\\library.ui\\library.ui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{7714C432-6B13-4BE4-BEE4-5DECADF54164}|Library.UI\\Library.UI.csproj|solutionrelative:library.ui\\library.ui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,8 +38,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LibraryService.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\Service\\LibraryService.cs",
+              "RelativeDocumentMoniker": "Library.UI\\Service\\LibraryService.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\Service\\LibraryService.cs",
+              "RelativeToolTip": "Library.UI\\Service\\LibraryService.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwB8AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T10:23:43.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Library.UI",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\Library.UI.csproj",
+              "RelativeDocumentMoniker": "Library.UI\\Library.UI.csproj",
+              "ToolTip": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\Library.UI.csproj",
+              "RelativeToolTip": "Library.UI\\Library.UI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-24T10:22:57.07Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -43,51 +81,64 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "BookController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\Controllers\\BookController.cs",
+              "RelativeDocumentMoniker": "Library.UI\\Controllers\\BookController.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\Controllers\\BookController.cs*",
+              "RelativeToolTip": "Library.UI\\Controllers\\BookController.cs*",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAUwFcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T09:52:35.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "AuthorController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\Controllers\\AuthorController.cs",
               "RelativeDocumentMoniker": "Library.UI\\Controllers\\AuthorController.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\Controllers\\AuthorController.cs*",
-              "RelativeToolTip": "Library.UI\\Controllers\\AuthorController.cs*",
-              "ViewState": "AgIAABoAAAAAAAAAAAAQwFIAAAAwAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\Controllers\\AuthorController.cs",
+              "RelativeToolTip": "Library.UI\\Controllers\\AuthorController.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAqwFYAAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-24T09:23:11.207Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\Program.cs",
               "RelativeDocumentMoniker": "Library.UI\\Program.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\Program.cs",
               "RelativeToolTip": "Library.UI\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-24T09:20:47.656Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Author.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Domain\\Entities\\Author.cs",
               "RelativeDocumentMoniker": "Library.Domain\\Entities\\Author.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Domain\\Entities\\Author.cs",
               "RelativeToolTip": "Library.Domain\\Entities\\Author.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-24T09:17:08.357Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Book.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Domain\\Entities\\Book.cs",
               "RelativeDocumentMoniker": "Library.Domain\\Entities\\Book.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Domain\\Entities\\Book.cs",
               "RelativeToolTip": "Library.Domain\\Entities\\Book.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-24T09:19:25.16Z",
               "EditorCaption": ""

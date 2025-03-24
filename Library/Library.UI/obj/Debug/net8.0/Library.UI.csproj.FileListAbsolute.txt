@@ -32,3 +32,4 @@ C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.UI\obj\Debug\net8.0\refint\
 C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.UI\obj\Debug\net8.0\Library.UI.pdb
 C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.UI\obj\Debug\net8.0\Library.UI.genruntimeconfig.cache
 C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.UI\obj\Debug\net8.0\ref\Library.UI.dll
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.UI\obj\Debug\net8.0\Library.UI.sourcelink.json

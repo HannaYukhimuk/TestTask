@@ -11,6 +11,7 @@ namespace Library.Domain.Entities
     public class Book
     {
         [Key]
+        public int Id { get; set; }
         public string ISBN { get; set; }
 
         //[Required]

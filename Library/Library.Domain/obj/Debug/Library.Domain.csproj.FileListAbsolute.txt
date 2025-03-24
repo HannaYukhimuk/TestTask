@@ -1,0 +1,8 @@
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Domain\bin\Debug\Library.Domain.dll
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Domain\bin\Debug\Library.Domain.pdb
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Domain\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Domain\obj\Debug\Library.Domain.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Domain\obj\Debug\Library.Domain.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Domain\obj\Debug\Library..F93CCB0A.Up2Date
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Domain\obj\Debug\Library.Domain.dll
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Domain\obj\Debug\Library.Domain.pdb

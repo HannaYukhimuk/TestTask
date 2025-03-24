@@ -1,0 +1,6 @@
+@Library.UI_HostAddress = http://localhost:5023
+
+GET {{Library.UI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

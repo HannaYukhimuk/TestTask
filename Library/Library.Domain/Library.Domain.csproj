@@ -47,6 +47,10 @@
   <ItemGroup>
     <Compile Include="Entities\Author.cs" />
     <Compile Include="Entities\Book.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Models\TokenResponseDto.cs" />
+    <Compile Include="Models\RefreshTokenRequestDto.cs" />
+    <Compile Include="Models\UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

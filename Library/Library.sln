@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.UI", "Library.UI\Library.UI.csproj", "{7714C432-6B13-4BE4-BEE4-5DECADF54164}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.UI", "Library.UI\Library.UI.csproj", "{7714C432-6B13-4BE4-BEE4-5DECADF54164}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Domain", "Library.Domain\Library.Domain.csproj", "{314F7423-B93E-4BE5-910B-6D3718D7F684}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Identity", "Library.Identity\Library.Identity.csproj", "{76492E1A-B6FC-4C98-B592-8E8F932D7215}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{314F7423-B93E-4BE5-910B-6D3718D7F684}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{314F7423-B93E-4BE5-910B-6D3718D7F684}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{314F7423-B93E-4BE5-910B-6D3718D7F684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76492E1A-B6FC-4C98-B592-8E8F932D7215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76492E1A-B6FC-4C98-B592-8E8F932D7215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76492E1A-B6FC-4C98-B592-8E8F932D7215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76492E1A-B6FC-4C98-B592-8E8F932D7215}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

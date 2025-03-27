@@ -1,86 +1,91 @@
 ﻿using Library.Domain;
 using Library.Domain.Entities;
 using Library.UI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Library.UI.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Library.UI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthorController : ControllerBase
+    public class AuthorController(LibraryDbContext context) : ControllerBase
     {
-        private readonly LibraryService _libraryService;
+        private readonly LibraryDbContext _context = context;
 
-        public AuthorController(LibraryService libraryService)
+
+        [HttpGet]
+        public async Task<ActionResult<List<Author>>> GetAuthors()
         {
-            _libraryService = libraryService;
+            return Ok(await _context.Authors.ToListAsync());
         }
 
         [HttpGet]
-        public ActionResult<List<Author>> GetAuthors()
+        [Route("{id}")]
+        public async Task<ActionResult<Author>> GetAuthorById(int id)
         {
-            return Ok(_libraryService.Authors);
-        }
-
-        [HttpGet("{id}")]
-        public ActionResult<Author> GetAuthorById(int id)
-        {
-            var author = _libraryService.Authors.FirstOrDefault(a => a.Id == id);
+            var author = await _context.Authors.FindAsync(id);
             if (author is null)
+            {
                 return NotFound();
+            }
 
             return Ok(author);
         }
 
         [HttpPost]
-        public ActionResult<Author> AddAuthor([FromBody] Author newAuthor)
+        public async Task<ActionResult<Author>> AddAuthor(Author newAuthor)
         {
-            if (newAuthor == null || string.IsNullOrWhiteSpace(newAuthor.FirstName) || string.IsNullOrWhiteSpace(newAuthor.LastName))
+            if (newAuthor is null)
             {
                 return BadRequest("Некорректные данные автора.");
             }
 
-            newAuthor.Id = _libraryService.Authors.Any() ? _libraryService.Authors.Max(a => a.Id) + 1 : 1;
-            _libraryService.Authors.Add(newAuthor);
+            _context.Authors.Add(newAuthor);
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetAuthorById), new { id = newAuthor.Id }, newAuthor);
         }
 
+
         [HttpPut("{id}")]
-        public IActionResult UpdateAuthor(int id, [FromBody] Author updatedAuthor)
+        public async Task<IActionResult> UpdateAuthor(int id, [FromBody] Author updatedAuthor)
         {
-            var author = _libraryService.Authors.FirstOrDefault(a => a.Id == id);
+            var author = await _context.Authors.FindAsync(id);
             if (author is null)
                 return NotFound();
-
-            if (updatedAuthor == null || string.IsNullOrWhiteSpace(updatedAuthor.FirstName) || string.IsNullOrWhiteSpace(updatedAuthor.LastName))
-            {
-                return BadRequest("Некорректные данные для обновления.");
-            }
 
             author.FirstName = updatedAuthor.FirstName;
             author.LastName = updatedAuthor.LastName;
             author.DateOfBirth = updatedAuthor.DateOfBirth;
             author.Country = updatedAuthor.Country;
 
-            return Ok(author);
-        }
+            await _context.SaveChangesAsync();
 
-        [HttpDelete("{id}")]
-        public IActionResult DeleteAuthor(int id)
-        {
-            var author = _libraryService.Authors.FirstOrDefault(a => a.Id == id);
-            if (author is null)
-                return NotFound();
-
-            _libraryService.Authors.Remove(author);
             return NoContent();
         }
 
-        [HttpGet("author/{authorId}")]
-        public ActionResult<List<Book>> GetBooksByAuthor(int authorId)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAuthor(int id)
         {
-            var booksByAuthor = _libraryService.Books.Where(b => b.Author.Id == authorId).ToList();
+            var author = await _context.Authors.FindAsync(id);
+            if (author is null)
+                return NotFound();
+
+            _context.Authors.Remove(author);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+
+        //&&&&&&>?????????????????
+
+        [HttpGet("author/{authorId}")]
+        public async Task<ActionResult<List<Book>>> GetBooksByAuthor(int authorId)
+        {
+            var booksByAuthor = _context.Books.Where(b => b.Author.Id == authorId).ToList();
 
             if (booksByAuthor.Count == 0)
             {

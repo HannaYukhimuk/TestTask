@@ -4,92 +4,103 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using Library.UI.Data;
+using Library.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace Library.UI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BookController : ControllerBase
+    public class BookController(LibraryDbContext context) : ControllerBase
     {
-        private readonly LibraryService _libraryService;
+        private readonly LibraryDbContext _context = context;
 
-        public BookController(LibraryService libraryService)
+
+        [HttpGet]
+        public async Task<ActionResult<List<Book>>> GetBooks()
         {
-            _libraryService = libraryService;
+            return Ok(await _context.Books.ToListAsync());
         }
 
         [HttpGet]
-        public ActionResult<List<Book>> GetBooks()
+        [Route("{id}")]
+        public async Task<ActionResult<Book>> GetBookById(int id)
         {
-            return Ok(_libraryService.Books);
-        }
-
-        [HttpGet("id/{id}")]
-        public ActionResult<Book> GetBookById(int id)
-        {
-            var book = _libraryService.Books.FirstOrDefault(b => b.Id == id);
-            if (book == null)
+            var book = await _context.Books.FindAsync(id);
+            if (book is null)
+            {
                 return NotFound();
+            }
 
             return Ok(book);
         }
 
-        [HttpGet("{isbn}")]
-        public ActionResult<Book> GetBookByIsbn(string isbn)
+        [HttpGet]
+        [Route("{isbn}")]
+        public async Task<ActionResult<Book>> GetBookByIsbn(int isbn)
         {
-            var book = _libraryService.Books.FirstOrDefault(b => b.ISBN == isbn);
-            if (book == null)
+            var book = await _context.Books.FindAsync(isbn);
+            if (book is null)
+            {
                 return NotFound();
+            }
 
             return Ok(book);
         }
 
         [HttpPost]
-        public ActionResult<Book> AddBook([FromBody] Book newBook)
+        public async Task<ActionResult<Book>> AddBook(Book newBook)
         {
-            if (newBook == null)
+            if (newBook is null)
             {
                 return BadRequest("Некорректные данные книги.");
             }
 
-            newBook.Id = _libraryService.Books.Any() ? _libraryService.Books.Max(b => b.Id) + 1 : 1;
-            _libraryService.Books.Add(newBook);
+            _context.Books.Add(newBook);
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetBookById), new { id = newBook.Id }, newBook);
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateBook(int id, [FromBody] Book updatedBook)
-        {
-            var book = _libraryService.Books.FirstOrDefault(b => b.Id == id);
-            if (book == null)
-                return NotFound();
 
-            book.Title = updatedBook.Title;
-            book.Description = updatedBook.Description;
-            book.Genre = updatedBook.Genre;
-            book.Author = updatedBook.Author;
-            book.ISBN = updatedBook.ISBN;
 
-            return Ok(book);
-        }
 
-        [HttpDelete("{id}")]
-        public IActionResult DeleteBook(int id)
-        {
-            var book = _libraryService.Books.FirstOrDefault(b => b.Id == id);
-            if (book == null)
-                return NotFound();
 
-            _libraryService.Books.Remove(book);
-            return NoContent();
-        }
 
-        
+
+
+
+
+
+
+        //[HttpPut("{id}")]
+        //public IActionResult UpdateBook(int id, [FromBody] Book updatedBook)
+        //{
+        //    var book = _libraryService.Books.FirstOrDefault(b => b.Id == id);
+        //    if (book == null)
+        //        return NotFound();
+
+        //    book.Title = updatedBook.Title;
+        //    book.Description = updatedBook.Description;
+        //    book.Genre = updatedBook.Genre;
+        //    book.Author = updatedBook.Author;
+        //    book.ISBN = updatedBook.ISBN;
+
+        //    return Ok(book);
+        //}
+
+        //[HttpDelete("{id}")]
+        //public IActionResult DeleteBook(int id)
+        //{
+        //    var book = _libraryService.Books.FirstOrDefault(b => b.Id == id);
+        //    if (book == null)
+        //        return NotFound();
+
+        //    _libraryService.Books.Remove(book);
+        //    return NoContent();
+        //}
+
+
     }
-}
-
-public class BorrowRequest
-{
-    public int DaysUntilReturn { get; set; }
 }

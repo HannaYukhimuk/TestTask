@@ -182,52 +182,15 @@
   },
   {
     "ContainingType": "Library.UI.Controllers.BookController",
-    "Method": "UpdateBook",
+    "Method": "GetBookById",
     "RelativePath": "api/Book/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "updatedBook",
-        "Type": "Library.Domain.Entities.Book",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Library.UI.Controllers.BookController",
-    "Method": "DeleteBook",
-    "RelativePath": "api/Book/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Library.UI.Controllers.BookController",
-    "Method": "GetBookByIsbn",
-    "RelativePath": "api/Book/{isbn}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "isbn",
-        "Type": "System.String",
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -245,14 +208,14 @@
   },
   {
     "ContainingType": "Library.UI.Controllers.BookController",
-    "Method": "GetBookById",
-    "RelativePath": "api/Book/id/{id}",
+    "Method": "GetBookByIsbn",
+    "RelativePath": "api/Book/{isbn}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "isbn",
         "Type": "System.Int32",
         "IsRequired": true
       }

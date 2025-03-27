@@ -144,7 +144,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Library.Domain.Entities.Book, Library.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -163,8 +163,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newBook",
-        "Type": "Library.Domain.Entities.Book",
+        "Name": "newBookDto",
+        "Type": "Library.Domain.Models.BookCreateDto",
         "IsRequired": true
       }
     ],
@@ -182,8 +182,45 @@
   },
   {
     "ContainingType": "Library.UI.Controllers.BookController",
-    "Method": "GetBookById",
+    "Method": "UpdateBook",
     "RelativePath": "api/Book/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedBook",
+        "Type": "Library.Domain.Entities.Book",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Library.UI.Controllers.BookController",
+    "Method": "DeleteBook",
+    "RelativePath": "api/Book/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Library.UI.Controllers.BookController",
+    "Method": "GetBookById",
+    "RelativePath": "api/Book/id/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -194,42 +231,22 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Library.Domain.Entities.Book",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Library.UI.Controllers.BookController",
     "Method": "GetBookByIsbn",
-    "RelativePath": "api/Book/{isbn}",
+    "RelativePath": "api/Book/isbn/{isbn}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "isbn",
-        "Type": "System.Int32",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Library.Domain.Entities.Book",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   }
 ]

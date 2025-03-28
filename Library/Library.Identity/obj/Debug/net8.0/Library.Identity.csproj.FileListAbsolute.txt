@@ -344,3 +344,4 @@ C:\Users\user\Desktop\TestTask\Library\Library.Identity\obj\Debug\net8.0\refint\
 C:\Users\user\Desktop\TestTask\Library\Library.Identity\obj\Debug\net8.0\Library.Identity.pdb
 C:\Users\user\Desktop\TestTask\Library\Library.Identity\obj\Debug\net8.0\Library.Identity.genruntimeconfig.cache
 C:\Users\user\Desktop\TestTask\Library\Library.Identity\obj\Debug\net8.0\ref\Library.Identity.dll
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Identity\bin\Debug\net8.0\Scalar.AspNetCore.dll

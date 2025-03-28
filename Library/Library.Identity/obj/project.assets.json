@@ -1015,6 +1015,22 @@
           "buildTransitive/Mono.TextTemplating.targets": {}
         }
       },
+      "Scalar.AspNetCore/2.1.3": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Scalar.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Scalar.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Swashbuckle.AspNetCore/6.6.2": {
         "type": "package",
         "dependencies": {
@@ -3799,6 +3815,23 @@
         "readme.md"
       ]
     },
+    "Scalar.AspNetCore/2.1.3": {
+      "sha512": "HBkeOYCFWBfJfXDWBRqs+MBG7n6SGZwGT8sTCewxsigy2dxF0TUW+MFP4IrudOTZMa02dnimQdUmHYvTkBAmAA==",
+      "type": "package",
+      "path": "scalar.aspnetcore/2.1.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net8.0/Scalar.AspNetCore.dll",
+        "lib/net8.0/Scalar.AspNetCore.xml",
+        "lib/net9.0/Scalar.AspNetCore.dll",
+        "lib/net9.0/Scalar.AspNetCore.xml",
+        "scalar.aspnetcore.2.1.3.nupkg.sha512",
+        "scalar.aspnetcore.nuspec"
+      ]
+    },
     "Swashbuckle.AspNetCore/6.6.2": {
       "sha512": "+NB4UYVYN6AhDSjW0IJAd1AGD8V33gemFNLPaxKTtPkHB+HaKAKf9MGAEUPivEWvqeQfcKIw8lJaHq6LHljRuw==",
       "type": "package",
@@ -4955,6 +4988,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 9.0.3",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.3",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.3",
+      "Scalar.AspNetCore >= 2.1.3",
       "Swashbuckle.AspNetCore >= 6.6.2",
       "System.IdentityModel.Tokens.Jwt >= 8.7.0"
     ]
@@ -4966,11 +5000,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Desktop\\TestTask\\Library\\Library.Identity\\Library.Identity.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Identity\\Library.Identity.csproj",
       "projectName": "Library.Identity",
-      "projectPath": "C:\\Users\\user\\Desktop\\TestTask\\Library\\Library.Identity\\Library.Identity.csproj",
+      "projectPath": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Identity\\Library.Identity.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Desktop\\TestTask\\Library\\Library.Identity\\obj\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Identity\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4992,8 +5026,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\user\\Desktop\\TestTask\\Library\\Library.Domain\\Library.Domain.csproj": {
-              "projectPath": "C:\\Users\\user\\Desktop\\TestTask\\Library\\Library.Domain\\Library.Domain.csproj"
+            "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Domain\\Library.Domain.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Domain\\Library.Domain.csproj"
             }
           }
         }
@@ -5036,6 +5070,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[9.0.3, )"
+          },
+          "Scalar.AspNetCore": {
+            "target": "Package",
+            "version": "[2.1.3, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

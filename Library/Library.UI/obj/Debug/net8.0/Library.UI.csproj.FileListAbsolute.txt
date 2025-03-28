@@ -340,3 +340,11 @@ C:\Users\user\Desktop\TestTask\Library\Library.UI\obj\Debug\net8.0\refint\Librar
 C:\Users\user\Desktop\TestTask\Library\Library.UI\obj\Debug\net8.0\Library.UI.pdb
 C:\Users\user\Desktop\TestTask\Library\Library.UI\obj\Debug\net8.0\Library.UI.genruntimeconfig.cache
 C:\Users\user\Desktop\TestTask\Library\Library.UI\obj\Debug\net8.0\ref\Library.UI.dll
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.UI\bin\Debug\net8.0\Library.Identity.deps.json
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.UI\bin\Debug\net8.0\Library.Identity.runtimeconfig.json
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.UI\bin\Debug\net8.0\Library.Identity.exe
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.UI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.UI\bin\Debug\net8.0\Microsoft.Bcl.Memory.dll
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.UI\bin\Debug\net8.0\Library.Identity.dll
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.UI\bin\Debug\net8.0\Library.Identity.pdb
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.UI\bin\Debug\net8.0\Scalar.AspNetCore.dll

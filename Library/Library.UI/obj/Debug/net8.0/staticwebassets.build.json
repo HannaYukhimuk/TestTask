@@ -1,11 +1,23 @@
 {
   "Version": 1,
-  "Hash": "od02jDHp2X0MstFowdnB2HLSN8qrRZc8AvTEMsBqxVg=",
+  "Hash": "ZjaOHfygu4kddYvzD3DorWu2napkGMLwQTkScKHqk3A=",
   "Source": "Library.UI",
   "BasePath": "_content/Library.UI",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Identity\\Library.Identity.csproj",
+      "Version": 2,
+      "Source": "Library.Identity",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
   "DiscoveryPatterns": [],
   "Assets": []
 }

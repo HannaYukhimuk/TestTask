@@ -9,6 +9,9 @@ using Library.Domain;
 using Microsoft.EntityFrameworkCore;
 using Library.Domain.Models;
 using Microsoft.Extensions.Caching.Memory;
+using Library.Identity.Data;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Library.UI.Controllers
 {
@@ -224,6 +227,50 @@ namespace Library.UI.Controllers
                 _cache.Set(id, imageBytes, TimeSpan.FromMinutes(10)); // Кешируем на 10 минут
             }
             return File(imageBytes, "image/jpeg");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        [Authorize]
+        [HttpPost("borrow/{bookId}")]
+        public async Task<IActionResult> BorrowBook(int bookId)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+                return Unauthorized("Не удалось определить пользователя.");
+
+            var userId = Guid.Parse(userIdClaim.Value);
+
+            var book = await _context.Books.FindAsync(bookId);
+            if (book == null)
+                return NotFound("Книга не найдена.");
+
+            
+            if (book.BorrowedAt != null)
+                return BadRequest("Книга уже выдана.");
+
+            book.BorrowedAt = DateTime.UtcNow;
+            book.ReturnBy = DateTime.UtcNow.AddDays(14); // Срок возврата - 14 дней
+
+            await _context.SaveChangesAsync();
+
+            return Ok(new
+            {
+                Message = "Книга успешно выдана.",
+                book.Title,
+                BorrowedAt = book.BorrowedAt,
+                ReturnBy = book.ReturnBy,
+                //User = user.Username
+            });
         }
 
 

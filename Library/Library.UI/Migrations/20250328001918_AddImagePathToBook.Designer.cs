@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library.UI.Migrations
 {
     [DbContext(typeof(LibraryDbContext))]
-    [Migration("20250325133802_Initial")]
-    partial class Initial
+    [Migration("20250328001918_AddImagePathToBook")]
+    partial class AddImagePathToBook
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,7 +47,7 @@ namespace Library.UI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Author");
+                    b.ToTable("Authors");
                 });
 
             modelBuilder.Entity("Library.Domain.Entities.Book", b =>
@@ -71,6 +71,9 @@ namespace Library.UI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ISBN")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ReturnBy")

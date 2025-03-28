@@ -8,15 +8,27 @@ using Library.UI.Data;
 using Library.Domain;
 using Microsoft.EntityFrameworkCore;
 using Library.Domain.Models;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace Library.UI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BookController(LibraryDbContext context) : ControllerBase
+    public class BookController : ControllerBase
     {
-        private readonly LibraryDbContext _context = context;
+        private readonly LibraryDbContext _context;
+        private readonly IMemoryCache _cache;
+        private readonly IWebHostEnvironment _env;
+        private readonly IHttpClientFactory _httpClientFactory;
 
+
+        public BookController(LibraryDbContext context, IMemoryCache cache, IWebHostEnvironment env, IHttpClientFactory httpClientFactory)
+        {
+            _context = context;
+            _cache = cache;
+            _env = env;
+            _httpClientFactory = httpClientFactory;
+        }
 
         [HttpGet]
         public async Task<ActionResult<List<object>>> GetBooks()
@@ -177,6 +189,42 @@ namespace Library.UI.Controllers
 
 
 
+        [HttpPost("upload-image/{id}")]
+        public async Task<IActionResult> UploadImage(int id, IFormFile file)
+        {
+            var book = await _context.Books.FindAsync(id);
+            if (book == null) return NotFound();
+
+            var uploadsFolder = Path.Combine(_env.WebRootPath, "images");
+            Directory.CreateDirectory(uploadsFolder);
+
+            var filePath = Path.Combine(uploadsFolder, file.FileName);
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            book.ImagePath = $"/images/{file.FileName}";
+            await _context.SaveChangesAsync();
+            return Ok(new { book.ImagePath });
+        }
+
+        [HttpGet("image/{id}")]
+        public IActionResult GetImage(int id)
+        {
+            if (!_cache.TryGetValue(id, out byte[] imageBytes))
+            {
+                var book = _context.Books.Find(id);
+                if (book == null || string.IsNullOrEmpty(book.ImagePath)) return NotFound();
+
+                var filePath = Path.Combine(_env.WebRootPath, book.ImagePath.TrimStart('/'));
+                if (!System.IO.File.Exists(filePath)) return NotFound();
+
+                imageBytes = System.IO.File.ReadAllBytes(filePath);
+                _cache.Set(id, imageBytes, TimeSpan.FromMinutes(10)); // Кешируем на 10 минут
+            }
+            return File(imageBytes, "image/jpeg");
+        }
 
 
     }

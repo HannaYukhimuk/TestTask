@@ -17,6 +17,9 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("LibraryDatabase"
 
 builder.Services.AddSingleton<LibraryService>();
 
+
+builder.Services.AddMemoryCache();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

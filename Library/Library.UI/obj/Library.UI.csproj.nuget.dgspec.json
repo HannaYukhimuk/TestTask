@@ -1,14 +1,14 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\Library.UI.csproj": {}
+    "C:\\Users\\user\\Desktop\\TestTask\\Library\\Library.UI\\Library.UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Domain\\Library.Domain.csproj": {
+    "C:\\Users\\user\\Desktop\\TestTask\\Library\\Library.Domain\\Library.Domain.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Domain\\Library.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\TestTask\\Library\\Library.Domain\\Library.Domain.csproj",
         "projectName": "Library.Domain",
-        "projectPath": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Domain\\Library.Domain.csproj",
+        "projectPath": "C:\\Users\\user\\Desktop\\TestTask\\Library\\Library.Domain\\Library.Domain.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {}
@@ -19,14 +19,14 @@
         "net472": {}
       }
     },
-    "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\Library.UI.csproj": {
+    "C:\\Users\\user\\Desktop\\TestTask\\Library\\Library.UI\\Library.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\Library.UI.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\TestTask\\Library\\Library.UI\\Library.UI.csproj",
         "projectName": "Library.UI",
-        "projectPath": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\Library.UI.csproj",
+        "projectPath": "C:\\Users\\user\\Desktop\\TestTask\\Library\\Library.UI\\Library.UI.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\obj\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\TestTask\\Library\\Library.UI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -48,8 +48,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Domain\\Library.Domain.csproj": {
-                "projectPath": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Domain\\Library.Domain.csproj"
+              "C:\\Users\\user\\Desktop\\TestTask\\Library\\Library.Domain\\Library.Domain.csproj": {
+                "projectPath": "C:\\Users\\user\\Desktop\\TestTask\\Library\\Library.Domain\\Library.Domain.csproj"
               }
             }
           }

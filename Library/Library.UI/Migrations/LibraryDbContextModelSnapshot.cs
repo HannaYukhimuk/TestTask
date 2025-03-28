@@ -70,6 +70,9 @@ namespace Library.UI.Migrations
                     b.Property<string>("ISBN")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("ReturnBy")
                         .HasColumnType("datetime2");
 

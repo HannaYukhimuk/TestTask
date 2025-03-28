@@ -27,5 +27,9 @@ namespace Library.Domain.Entities
         public DateTime? BorrowedAt { get; set; }
 
         public DateTime? ReturnBy { get; set; }
+
+
+
+        public string ImagePath { get; set; }
     }
 }

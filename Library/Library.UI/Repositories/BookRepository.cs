@@ -9,6 +9,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Library.UI.Repositories
 {
@@ -149,6 +150,17 @@ namespace Library.UI.Repositories
             var book = await _context.Books.FindAsync(bookId);
             if (book == null || book.BorrowedAt != null) return null;
 
+            var newLoan = new UserBook
+            {
+                UserId = userId,
+                BookId = bookId,
+                BorrowedAt = DateTime.UtcNow,
+                ReturnBy = DateTime.UtcNow.AddDays(14) // 14 дней на возврат
+            };
+
+
+            _context.UserBooks.Add(newLoan);
+
             book.BorrowedAt = DateTime.UtcNow;
             book.ReturnBy = DateTime.UtcNow.AddDays(14);
             await _context.SaveChangesAsync();
@@ -161,8 +173,21 @@ namespace Library.UI.Repositories
             var book = await _context.Books.FindAsync(bookId);
             if (book == null || book.BorrowedAt == null) return null;
 
+
+            var bookLoan = await _context.UserBooks
+    .FirstOrDefaultAsync(bl => bl.BookId == bookId && bl.UserId == userId && bl.ReturnedAt == null);
+
+            if (bookLoan == null)
+            {
+                return new { Error = "Book checkout record not found or book already returned." };
+            }
+
+
             book.BorrowedAt = null;
             book.ReturnBy = null;
+
+            bookLoan.ReturnedAt = DateTime.UtcNow;
+
             await _context.SaveChangesAsync();
 
             return new { book.Id, book.Title, Message = "The book has been returned" };

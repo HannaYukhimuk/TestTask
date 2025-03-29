@@ -48,6 +48,7 @@
     <Compile Include="Entities\Author.cs" />
     <Compile Include="Entities\Book.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserBook.cs" />
     <Compile Include="Models\BookDto.cs" />
     <Compile Include="Models\TokenResponseDto.cs" />
     <Compile Include="Models\RefreshTokenRequestDto.cs" />

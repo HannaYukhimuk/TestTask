@@ -381,6 +381,22 @@
   },
   {
     "ContainingType": "Library.UI.Controllers.BookController",
+    "Method": "ReturnBook",
+    "RelativePath": "api/Book/return/{bookId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Library.UI.Controllers.BookController",
     "Method": "UploadImage",
     "RelativePath": "api/Book/upload-image/{id}",
     "HttpMethod": "POST",

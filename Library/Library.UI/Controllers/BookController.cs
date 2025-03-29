@@ -254,24 +254,73 @@ namespace Library.UI.Controllers
             if (book == null)
                 return NotFound("Книга не найдена.");
 
-            
-            if (book.BorrowedAt != null)
-                return BadRequest("Книга уже выдана.");
+            var existingLoan = await _context.UserBooks
+                .FirstOrDefaultAsync(bl => bl.BookId == bookId && bl.ReturnedAt == null);
+
+            if (existingLoan != null)
+                return BadRequest("Книга уже выдана другому пользователю.");
+
+            var newLoan = new UserBook
+            {
+                UserId = userId,
+                BookId = bookId,
+                BorrowedAt = DateTime.UtcNow,
+                ReturnBy = DateTime.UtcNow.AddDays(14) // 14 дней на возврат
+            };
 
             book.BorrowedAt = DateTime.UtcNow;
             book.ReturnBy = DateTime.UtcNow.AddDays(14); // Срок возврата - 14 дней
 
+
+
+            _context.UserBooks.Add(newLoan);
             await _context.SaveChangesAsync();
 
             return Ok(new
             {
                 Message = "Книга успешно выдана.",
                 book.Title,
-                BorrowedAt = book.BorrowedAt,
-                ReturnBy = book.ReturnBy,
-                //User = user.Username
+                BorrowedAt = newLoan.BorrowedAt,
+                ReturnBy = newLoan.ReturnBy
             });
         }
+
+        [Authorize]
+        [HttpPost("return/{bookId}")]
+        public async Task<IActionResult> ReturnBook(int bookId)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+                return Unauthorized("Не удалось определить пользователя.");
+
+            var userId = Guid.Parse(userIdClaim.Value);
+
+            var bookLoan = await _context.UserBooks
+                .Include(bl => bl.Book) // Загружаем связанную книгу
+                .FirstOrDefaultAsync(bl => bl.BookId == bookId && bl.UserId == userId && bl.ReturnedAt == null);
+
+            if (bookLoan == null)
+                return BadRequest("Вы не брали эту книгу или уже вернули.");
+
+            if (bookLoan.Book == null)
+                return BadRequest("Ошибка: Книга не найдена в базе данных.");
+
+
+            var book = await _context.Books.FindAsync(bookId);
+            book.BorrowedAt = null;
+            book.ReturnBy = null; 
+
+            bookLoan.ReturnedAt = DateTime.UtcNow;
+            await _context.SaveChangesAsync();
+
+            return Ok(new
+            {
+                Message = "Книга успешно возвращена.",
+                BookTitle = bookLoan.Book.Title, // Безопасный доступ к названию книги
+                ReturnedAt = bookLoan.ReturnedAt
+            });
+        }
+
 
 
     }

@@ -305,12 +305,14 @@ namespace Library.UI.Controllers
             if (bookLoan.Book == null)
                 return BadRequest("Ошибка: Книга не найдена в базе данных.");
 
-
             var book = await _context.Books.FindAsync(bookId);
             book.BorrowedAt = null;
-            book.ReturnBy = null; 
+            book.ReturnBy = null;
 
             bookLoan.ReturnedAt = DateTime.UtcNow;
+
+            _context.Remove(bookLoan); // Удаление записи из контекста
+
             await _context.SaveChangesAsync();
 
             return Ok(new

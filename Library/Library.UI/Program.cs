@@ -74,6 +74,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 
 
+builder.Services.AddHostedService<OverdueBookNotifier>();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 

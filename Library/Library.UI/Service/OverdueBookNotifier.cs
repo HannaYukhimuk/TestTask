@@ -1,0 +1,55 @@
+﻿using Library.UI.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+
+public class OverdueBookNotifier : BackgroundService
+{
+    private readonly IServiceScopeFactory _scopeFactory;
+    private readonly ILogger<OverdueBookNotifier> _logger;
+
+    public OverdueBookNotifier(IServiceScopeFactory scopeFactory, ILogger<OverdueBookNotifier> logger)
+    {
+        _scopeFactory = scopeFactory;
+        _logger = logger;
+    }
+
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            try
+            {
+                using (var scope = _scopeFactory.CreateScope())
+                {
+                    var context = scope.ServiceProvider.GetRequiredService<LibraryDbContext>();
+
+                    var overdueLoans = await context.UserBooks
+                        .Include(bl => bl.Book)  // Подгружаем связанные книги
+                        .Where(bl => bl.ReturnBy < DateTime.UtcNow && bl.ReturnedAt == null)
+                        .ToListAsync(stoppingToken);
+
+                    foreach (var loan in overdueLoans)
+                    {
+                        if (loan.Book == null)
+                        {
+                            _logger.LogError($"Ошибка: LoanId {loan.Id} не имеет связанной книги.");
+                            continue;
+                        }
+
+                        _logger.LogWarning($"Книга '{loan.Book.Title}' просрочена пользователем {loan.UserId}");
+
+                        // TODO: Здесь можно добавить отправку email или push-уведомления
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Ошибка при проверке просроченных книг");
+            }
+
+            await Task.Delay(TimeSpan.FromHours(1), stoppingToken); // Проверяем раз в час
+        }
+    }
+}

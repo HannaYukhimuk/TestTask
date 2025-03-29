@@ -34,11 +34,11 @@ public class OverdueBookNotifier : BackgroundService
                     {
                         if (loan.Book == null)
                         {
-                            _logger.LogError($"Ошибка: LoanId {loan.Id} не имеет связанной книги.");
+                            _logger.LogError($"Error: LoanId {loan.Id} has no associated book.");
                             continue;
                         }
 
-                        _logger.LogWarning($"Книга '{loan.Book.Title}' просрочена пользователем {loan.UserId}");
+                        _logger.LogWarning($"Book '{loan.Book.Title}' is expired by {loan.UserId}");
 
                         // TODO: Здесь можно добавить отправку email или push-уведомления
                     }
@@ -46,7 +46,7 @@ public class OverdueBookNotifier : BackgroundService
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Ошибка при проверке просроченных книг");
+                _logger.LogError(ex, "Error checking expired books");
             }
 
             await Task.Delay(TimeSpan.FromHours(1), stoppingToken); // Проверяем раз в час

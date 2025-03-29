@@ -348,3 +348,4 @@ C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.UI\bin\Debug\net8.0\Microso
 C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.UI\bin\Debug\net8.0\Library.Identity.dll
 C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.UI\bin\Debug\net8.0\Library.Identity.pdb
 C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.UI\bin\Debug\net8.0\Scalar.AspNetCore.dll
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.UI\bin\Debug\net8.0\Library.UI.staticwebassets.runtime.json

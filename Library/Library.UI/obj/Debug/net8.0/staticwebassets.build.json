@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZjaOHfygu4kddYvzD3DorWu2napkGMLwQTkScKHqk3A=",
+  "Hash": "DRApjl/nsZ0Vasvt1B/BgOkIak5mt9TytOSMxPG/hKs=",
   "Source": "Library.UI",
   "BasePath": "_content/Library.UI",
   "Mode": "Default",
@@ -18,6 +18,53 @@
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
     }
   ],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "Library.UI\\wwwroot",
+      "Source": "Library.UI",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\wwwroot\\",
+      "BasePath": "_content/Library.UI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\wwwroot\\Images\\1.jpg",
+      "SourceId": "Library.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\wwwroot\\",
+      "BasePath": "_content/Library.UI",
+      "RelativePath": "Images/1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\wwwroot\\Images\\2.jpg",
+      "SourceId": "Library.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\wwwroot\\",
+      "BasePath": "_content/Library.UI",
+      "RelativePath": "Images/2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\2.jpg"
+    }
+  ]
 }

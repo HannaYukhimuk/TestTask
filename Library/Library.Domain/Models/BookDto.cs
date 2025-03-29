@@ -19,14 +19,11 @@ namespace Library.Domain.Models
         public string Description { get; set; }
 
         [Required]
-        public string FirstName { get; set; } // Имя автора
+        public string FirstName { get; set; } 
 
         [Required]
-        public string LastName { get; set; } // Фамилия автора
+        public string LastName { get; set; } 
 
-        public DateTime? BorrowedAt { get; set; }
-
-        public DateTime? ReturnBy { get; set; }
     }
 }
 

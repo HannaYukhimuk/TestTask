@@ -14,7 +14,6 @@ namespace Library.Domain.Entities
         public int Id { get; set; }
         public string ISBN { get; set; }
 
-        //[Required]
         public string Title { get; set; }
 
         public string Genre { get; set; }
@@ -27,8 +26,6 @@ namespace Library.Domain.Entities
         public DateTime? BorrowedAt { get; set; }
 
         public DateTime? ReturnBy { get; set; }
-
-
 
         public string ImagePath { get; set; }
     }

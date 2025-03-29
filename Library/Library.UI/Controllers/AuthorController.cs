@@ -1,31 +1,42 @@
 ﻿using Library.Domain;
 using Library.Domain.Entities;
-using Library.UI.Services;
-using Microsoft.AspNetCore.Authorization;
+using Library.Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using Library.UI.Data;
-using Microsoft.EntityFrameworkCore;
 
 namespace Library.UI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthorController(LibraryDbContext context) : ControllerBase
+    public class AuthorController(IAuthorRepository authorRepository) : ControllerBase
     {
-        private readonly LibraryDbContext _context = context;
-
+        private readonly IAuthorRepository _authorRepository = authorRepository;
 
         [HttpGet]
-        public async Task<ActionResult<List<Author>>> GetAuthors()
+        public async Task<ActionResult<object>> GetAuthors(int pageNumber = 1, int pageSize = 10)
         {
-            return Ok(await _context.Authors.ToListAsync());
+            if (pageNumber < 1 || pageSize < 1)
+            {
+                return BadRequest("Page number and size must be positive numbers.");
+            }
+
+            var totalAuthors = await _authorRepository.GetTotalAuthors();
+            var totalPages = (int)Math.Ceiling(totalAuthors / (double)pageSize);
+            var authors = await _authorRepository.GetAuthors(pageNumber, pageSize);
+
+            return Ok(new
+            {
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalPages = totalPages,
+                TotalAuthors = totalAuthors,
+                Authors = authors
+            });
         }
 
-        [HttpGet]
-        [Route("{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Author>> GetAuthorById(int id)
         {
-            var author = await _context.Authors.FindAsync(id);
+            var author = await _authorRepository.GetAuthorById(id);
             if (author is null)
             {
                 return NotFound();
@@ -39,20 +50,18 @@ namespace Library.UI.Controllers
         {
             if (newAuthor is null)
             {
-                return BadRequest("Некорректные данные автора.");
+                return BadRequest("Incorrect author data.");
             }
 
-            _context.Authors.Add(newAuthor);
-            await _context.SaveChangesAsync();
+            await _authorRepository.AddAuthor(newAuthor);
 
             return CreatedAtAction(nameof(GetAuthorById), new { id = newAuthor.Id }, newAuthor);
         }
 
-
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateAuthor(int id, [FromBody] Author updatedAuthor)
         {
-            var author = await _context.Authors.FindAsync(id);
+            var author = await _authorRepository.GetAuthorById(id);
             if (author is null)
                 return NotFound();
 
@@ -61,7 +70,7 @@ namespace Library.UI.Controllers
             author.DateOfBirth = updatedAuthor.DateOfBirth;
             author.Country = updatedAuthor.Country;
 
-            await _context.SaveChangesAsync();
+            await _authorRepository.UpdateAuthor(author);
 
             return NoContent();
         }
@@ -69,30 +78,13 @@ namespace Library.UI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAuthor(int id)
         {
-            var author = await _context.Authors.FindAsync(id);
+            var author = await _authorRepository.GetAuthorById(id);
             if (author is null)
                 return NotFound();
 
-            _context.Authors.Remove(author);
-            await _context.SaveChangesAsync();
+            await _authorRepository.DeleteAuthor(author);
 
             return NoContent();
-        }
-
-
-        //&&&&&&>?????????????????
-
-        [HttpGet("author/{authorId}")]
-        public async Task<ActionResult<List<Book>>> GetBooksByAuthor(int authorId)
-        {
-            var booksByAuthor = _context.Books.Where(b => b.Author.Id == authorId).ToList();
-
-            if (booksByAuthor.Count == 0)
-            {
-                return NotFound($"No books found for author with ID {authorId}.");
-            }
-
-            return Ok(booksByAuthor);
         }
     }
 }

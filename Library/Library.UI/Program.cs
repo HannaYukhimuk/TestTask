@@ -1,8 +1,9 @@
 using System.Text;
+using Library.Domain.Repositories;
 using Library.Domain.Services;
 using Library.Identity.Data;
 using Library.UI.Data;
-using Library.UI.Services;
+using Library.UI.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -76,9 +77,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddHostedService<OverdueBookNotifier>();
 
-builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
 
-builder.Services.AddSingleton<LibraryService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 
 builder.Services.AddMemoryCache();

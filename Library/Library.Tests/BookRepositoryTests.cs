@@ -25,7 +25,7 @@ public class BookRepositoryTests
     }
 
     [Fact]
-    public async Task AddBookAsync_ShouldAddBook()
+    public async Task AddBookAsync()
     {
         var book = new Book { Id = 1, Title = "Test Book", ISBN = "123456", Genre = "Fiction", Description = "Test Description" };
 
@@ -38,7 +38,7 @@ public class BookRepositoryTests
     }
 
     [Fact]
-    public async Task GetBookByIdAsync_ShouldReturnCorrectBook()
+    public async Task GetBookByIdAsync()
     {
         var book = new Book { Id = 2, Title = "Another Book", ISBN = "789012", Genre = "Non-fiction", Description = "Another Description" };
         _context.Books.Add(book);

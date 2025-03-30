@@ -65,13 +65,14 @@ namespace Library.UI.Repositories
             return author;
         }
 
-        public async Task<Book?> GetBooksByAuthorIdAsync(int authorId)
+        public async Task<List<Book>> GetBooksByAuthorIdAsync(int authorId)
         {
             var books = await _context.Books
                 .Where(b => b.Author.Id == authorId)
                 .ToListAsync();
 
-            return books.FirstOrDefault();
+            return books;  
         }
+
     }
 }

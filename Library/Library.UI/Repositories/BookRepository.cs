@@ -36,7 +36,7 @@ public class BookRepository : IBookRepository
     public async Task<Book> GetByIsbnAsync(string isbn)
     {
         return await _context.Books
-            .FirstOrDefaultAsync(b => b.ISBN == isbn);  // Используем FirstOrDefaultAsync для поиска по ISBN
+            .FirstOrDefaultAsync(b => b.ISBN == isbn);  
     }
 
 

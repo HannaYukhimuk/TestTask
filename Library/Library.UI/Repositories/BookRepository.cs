@@ -202,7 +202,7 @@ namespace Library.UI.Repositories
             book.BorrowedAt = null;
             book.ReturnBy = null;
 
-            bookLoan.ReturnedAt = DateTime.UtcNow;
+            _context.UserBooks.Remove(bookLoan);
 
             await _context.SaveChangesAsync();
 

@@ -349,3 +349,6 @@ C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Identity\bin\Debug\net8.0\A
 C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Identity\bin\Debug\net8.0\AutoMapper.xml
 C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Identity\bin\Debug\net8.0\Library.Domain.dll.config
 C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Identity\bin\Debug\net8.0\AutoMapper.pdb
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Identity\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Identity\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Identity\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll

@@ -9,7 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using AutoMapper;
-using AutoMapper;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +24,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddHttpClient();
+
+
+
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<BookCreateDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<AuthorValidator>();
+
 
 // Добавляем Swagger
 builder.Services.AddSwaggerGen(c =>
@@ -75,6 +84,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuerSigningKey = true
         };
     });
+
+
 
 
 

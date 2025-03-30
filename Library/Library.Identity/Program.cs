@@ -1,3 +1,4 @@
+using FluentValidation;
 using Library.Domain.Services;
 using Library.Identity.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -32,6 +33,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuerSigningKey = true
         };
     });
+
+builder.Services.AddValidatorsFromAssemblyContaining<UserDtoValidator>();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 

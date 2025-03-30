@@ -44,7 +44,7 @@ public class BookRepositoryTests
         _context.Books.Add(book);
         await _context.SaveChangesAsync();
 
-        var retrievedBook = await _bookRepository.GetBookByIdAsync(2);
+        var retrievedBook = await _bookRepository.GetByIdAsync(2);
 
         Xunit.Assert.NotNull(retrievedBook);
     }

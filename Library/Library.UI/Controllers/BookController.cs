@@ -1,121 +1,81 @@
 ﻿using Library.Domain.Entities;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using System.IO;
-using Microsoft.AspNetCore.Http;
-using Library.UI.Data;
-using Library.Domain;
-using Microsoft.EntityFrameworkCore;
 using Library.Domain.Models;
-using Microsoft.Extensions.Caching.Memory;
-using Library.Identity.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Caching.Memory;
 using System.Security.Claims;
-using Library.Domain.Repositories;
 using AutoMapper;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System;
+using Microsoft.AspNetCore.Http;
+using Library.Domain.Repositories;
 
 namespace Library.UI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
     public class BookController : ControllerBase
     {
         private readonly IBookRepository _bookRepository;
         private readonly IAuthorRepository _authorRepository;
         private readonly IMemoryCache _cache;
+        private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _env;
-        private readonly IMapper _mapper;  
 
-            public BookController(IBookRepository bookRepository, IAuthorRepository authorRepository, IMemoryCache cache, IWebHostEnvironment env, IMapper mapper)
-            {
-                _bookRepository = bookRepository;
-                _authorRepository = authorRepository;
-                _cache = cache;
-                _env = env;
-                _mapper = mapper;  
-            }
-        
-
+        public BookController(IBookRepository bookRepository, IAuthorRepository authorRepository, IMemoryCache cache, IMapper mapper, IWebHostEnvironment env)
+        {
+            _bookRepository = bookRepository;
+            _authorRepository = authorRepository;
+            _cache = cache;
+            _mapper = mapper;
+            _env = env;
+        }
 
         [HttpGet]
-        public async Task<ActionResult<List<object>>> GetBooks(int pageNumber = 1, int pageSize = 10)
+        public async Task<ActionResult<IEnumerable<Book>>> GetBooks(int pageNumber = 1, int pageSize = 10)
         {
-            if (pageNumber < 1 || pageSize < 1)
-            {
-                return BadRequest("Page number and size must be positive numbers.");
-            }
-
-            var response = await _bookRepository.GetBooksPagedAsync(pageNumber, pageSize);
-            return Ok(response);
+            return Ok(await _bookRepository.GetBooksPagedAsync(pageNumber, pageSize));
         }
 
-        [HttpGet("id/{id:int}")]
-        public async Task<ActionResult<object>> GetBookById(int id)
+        [HttpGet("id/{id}")]
+        public async Task<ActionResult<Book>> GetBook(int id)
         {
-            var book = await _bookRepository.GetBookByIdAsync(id);
-            if (book is null)
-            {
-                return NotFound();
-            }
-            return Ok(book);
+            var book = await _bookRepository.GetByIdAsync(id);
+            return book is null ? NotFound() : Ok(book);
         }
 
-        [HttpGet("id/{isbn}")]
-        public async Task<ActionResult<object>> GetBookByIsbn(string isbn)
+        [HttpGet("isbn/{isbn}")]
+        public async Task<ActionResult<Book>> GetBookIsbn(string isbn)
         {
-            var book = await _bookRepository.GetBookByIsbnAsync(isbn);
-            if (book is null)
-            {
-                return NotFound();
-            }
-            return Ok(book);
+            var book = await _bookRepository.GetByIsbnAsync(isbn);
+            return book is null ? NotFound() : Ok(book);
         }
+
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<Book>> AddBook(BookCreateDto newBookDto)
         {
-            if (newBookDto is null)
-            {
-                return BadRequest("Incorrect book data.");
-            }
-             
             var book = _mapper.Map<Book>(newBookDto);
-             
-            var author = await _authorRepository.FindOrCreateAuthorAsync(newBookDto.FirstName, newBookDto.LastName);
-            book.Author = author;  
-             
-            var newBook = await _bookRepository.AddBookAsync(newBookDto);
-
-            return CreatedAtAction(nameof(GetBookById), new { id = newBook.Id }, newBook);
+            book.Author = await _authorRepository.FindOrCreateAuthorAsync(newBookDto.FirstName, newBookDto.LastName);
+            var createdBook = await _bookRepository.AddAsync(book);
+            return CreatedAtAction(nameof(GetBook), new { id = createdBook.Id }, createdBook);
         }
-
 
         [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateBook(int id, [FromBody] Book updatedBook)
+        public async Task<IActionResult> UpdateBook(int id, Book updatedBook)
         {
-            var success = await _bookRepository.UpdateBookAsync(id, updatedBook);
-            if (!success)
-                return NotFound();
-
-            return NoContent();
+            return await _bookRepository.UpdateAsync(id, updatedBook) ? NoContent() : NotFound();
         }
 
         [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBook(int id)
         {
-            var success = await _bookRepository.DeleteBookAsync(id);
-            if (!success)
-                return NotFound();
-
-            return NoContent();
+            return await _bookRepository.DeleteAsync(id) ? NoContent() : NotFound();
         }
-
-
-
 
         [Authorize(Roles = "Admin")]
         [HttpPost("upload-image/{id}")]

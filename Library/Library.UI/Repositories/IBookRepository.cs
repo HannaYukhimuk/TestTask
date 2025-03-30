@@ -1,23 +1,23 @@
 ﻿using Library.Domain.Entities;
 using Library.Domain.Models;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Caching.Memory;
 
 public interface IBookRepository
 {
-    Task<object> GetBooksPagedAsync(int pageNumber, int pageSize);
-    Task<object> GetBookByIdAsync(int id);
+    Task<IEnumerable<Book>> GetBooksPagedAsync(int pageNumber, int pageSize);
+    Task<Book> GetByIdAsync(int id);
+    Task<Book> GetByIsbnAsync(string id);
+    Task<Book> AddAsync(Book book);
+    Task<bool> UpdateAsync(int id, Book updatedBook);
+    Task<bool> DeleteAsync(int id);
+    Task<string?> UploadImageAsync(int id, IFormFile file, string webRootPath);
+    Task<byte[]?> GetImageAsync(int id, IMemoryCache cache, string webRootPath);
+    Task<Book?> BorrowBookAsync(int bookId, Guid userId);
+    Task<Book?> ReturnBookAsync(int bookId, Guid userId);
 
-    Task<object> GetBookByIsbnAsync(string id);
-    Task<Book> AddBookAsync(BookCreateDto newBookDto);
-    Task<bool> UpdateBookAsync(int id, Book updatedBook);
-    Task<bool> DeleteBookAsync(int id);
-    Task<string> UploadImageAsync(int id, IFormFile file, string webRootPath);
-    Task<byte[]> GetImageAsync(int id, IMemoryCache cache, string webRootPath);
-    Task<object> BorrowBookAsync(int bookId, Guid userId);
-    Task<object> ReturnBookAsync(int bookId, Guid userId);
-    Task<List<Book>> GetBooksByAuthorIdAsync(int authorId);
+    
 }

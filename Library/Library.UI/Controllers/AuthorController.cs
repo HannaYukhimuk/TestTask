@@ -95,13 +95,15 @@ namespace Library.UI.Controllers
         [HttpGet("author/{authorId}")]
         public async Task<ActionResult<List<Book>>> GetBooksByAuthor(int authorId)
         {
-            var books = await _bookRepository.GetBooksByAuthorIdAsync(authorId);
-            if (books == null || !books.Any())
+            var books = await _authorRepository.GetBooksByAuthorIdAsync(authorId);
+
+            if (books == null)  
             {
                 return NotFound($"No books found for author with ID {authorId}.");
             }
 
-            return Ok(books);
+            return Ok(books);  
         }
+
     }
 }

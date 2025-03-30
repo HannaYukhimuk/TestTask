@@ -40,8 +40,8 @@ namespace Library.UI.Repositories
         {
             var books = await _context.Books.Where(b => b.Author.Id == author.Id).ToListAsync();
 
-            _context.Books.RemoveRange(books); // Удаляем все книги, принадлежащие автору
-            _context.Authors.Remove(author);   // Удаляем самого автора
+            _context.Books.RemoveRange(books);  
+            _context.Authors.Remove(author);    
             await _context.SaveChangesAsync();
         }
 
@@ -65,5 +65,13 @@ namespace Library.UI.Repositories
             return author;
         }
 
+        public async Task<Book?> GetBooksByAuthorIdAsync(int authorId)
+        {
+            var books = await _context.Books
+                .Where(b => b.Author.Id == authorId)
+                .ToListAsync();
+
+            return books.FirstOrDefault();
+        }
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ihMcqNZ2iJLfU6fP8Zw5+vj5Y+1gg74DNRt0hdDj8kA=",
+  "Hash": "AyiJ+aOowojlBxGhAUD53PEKgxNlfV0B978Ao2G90I4=",
   "Source": "Library.UI",
   "BasePath": "_content/Library.UI",
   "Mode": "Default",
@@ -84,6 +84,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\14.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\wwwroot\\Images\\15.jpg",
+      "SourceId": "Library.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\wwwroot\\",
+      "BasePath": "_content/Library.UI",
+      "RelativePath": "Images/15.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\15.jpg"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.UI\\wwwroot\\Images\\2.jpg",

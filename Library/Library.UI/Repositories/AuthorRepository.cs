@@ -38,7 +38,10 @@ namespace Library.UI.Repositories
 
         public async Task DeleteAuthor(Author author)
         {
-            _context.Authors.Remove(author);
+            var books = await _context.Books.Where(b => b.Author.Id == author.Id).ToListAsync();
+
+            _context.Books.RemoveRange(books); // Удаляем все книги, принадлежащие автору
+            _context.Authors.Remove(author);   // Удаляем самого автора
             await _context.SaveChangesAsync();
         }
 

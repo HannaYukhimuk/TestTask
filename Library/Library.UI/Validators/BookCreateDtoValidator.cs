@@ -11,7 +11,7 @@ public class BookCreateDtoValidator : AbstractValidator<BookCreateDto>
 
         RuleFor(x => x.ISBN)
             .NotEmpty().WithMessage("ISBN is required")
-            .Matches(@"^\d{10}(\d{3})?$").WithMessage("Invalid ISBN format");
+            .Matches(@"^\d{3}-\d{1,2}-\d{1,5}-\d{1,6}-\d$").WithMessage("Invalid ISBN format. Example: 978-3-16-144110-0");
 
         RuleFor(x => x.Genre)
             .NotEmpty().WithMessage("Genre is required");

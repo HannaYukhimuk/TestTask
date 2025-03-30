@@ -19,4 +19,5 @@ public interface IBookRepository
     Task<byte[]> GetImageAsync(int id, IMemoryCache cache, string webRootPath);
     Task<object> BorrowBookAsync(int bookId, Guid userId);
     Task<object> ReturnBookAsync(int bookId, Guid userId);
+    Task<List<Book>> GetBooksByAuthorIdAsync(int authorId);
 }

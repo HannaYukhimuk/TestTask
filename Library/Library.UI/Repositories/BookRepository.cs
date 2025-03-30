@@ -208,5 +208,12 @@ namespace Library.UI.Repositories
 
             return new { book.Id, book.Title, Message = "The book has been returned" };
         }
+
+        public async Task<List<Book>> GetBooksByAuthorIdAsync(int authorId)
+        {
+            return await _context.Books
+                .Where(b => b.Author.Id == authorId)
+                .ToListAsync();
+        }
     }
 }

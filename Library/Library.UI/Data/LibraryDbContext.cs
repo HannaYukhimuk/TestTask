@@ -21,7 +21,10 @@ namespace Library.UI.Data
                 .HasOne(ub => ub.Book)
                 .WithMany()
                 .HasForeignKey(ub => ub.BookId);
-
+            modelBuilder.Entity<Book>()
+                    .HasOne(b => b.Author)
+                    .WithMany()
+                    .OnDelete(DeleteBehavior.Cascade);
         }
 
 

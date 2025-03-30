@@ -208,6 +208,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Library.UI.Controllers.AuthorController",
+    "Method": "GetBooksByAuthor",
+    "RelativePath": "api/Author/author/{authorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "authorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Library.Domain.Entities.Book, Library.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Library.UI.Controllers.BookController",
     "Method": "GetBooks",
     "RelativePath": "api/Book",

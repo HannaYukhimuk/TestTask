@@ -72,6 +72,7 @@ namespace Library.UI.Controllers
             return Ok(book);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<Book>> AddBook(BookCreateDto newBookDto)
         {
@@ -91,6 +92,7 @@ namespace Library.UI.Controllers
         }
 
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateBook(int id, [FromBody] Book updatedBook)
         {
@@ -101,6 +103,7 @@ namespace Library.UI.Controllers
             return NoContent();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBook(int id)
         {
@@ -114,6 +117,7 @@ namespace Library.UI.Controllers
 
 
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("upload-image/{id}")]
         public async Task<IActionResult> UploadImage(int id, IFormFile file)
         {
@@ -122,6 +126,7 @@ namespace Library.UI.Controllers
             return Ok(new { ImagePath = result });
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet("image/{id}")]
         public async Task<IActionResult> GetImage(int id)
         {

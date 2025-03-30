@@ -115,7 +115,7 @@ public class BookRepository : IBookRepository
             UserId = userId,
             BookId = bookId,
             BorrowedAt = DateTime.UtcNow,
-            ReturnBy = DateTime.UtcNow.AddDays(14) // 14 дней на возврат
+            ReturnBy = DateTime.UtcNow.AddDays(14)  
         };
 
 

@@ -36,7 +36,7 @@ namespace Library.Domain.Services
             var author = await _authorRepository.GetAuthorById(id);
             if (author == null)
             {
-                return false; // Если автор не найден, возвращаем false
+                return false;  
             }
 
             author.FirstName = updatedAuthor.FirstName;
@@ -53,7 +53,7 @@ namespace Library.Domain.Services
             var author = await _authorRepository.GetAuthorById(id);
             if (author == null)
             {
-                return false; // Если автор не найден, возвращаем false
+                return false; 
             }
 
             await _authorRepository.DeleteAuthor(author);
@@ -63,7 +63,7 @@ namespace Library.Domain.Services
         public async Task<IEnumerable<Book>> GetBooksByAuthorIdAsync(int authorId)
         {
             var books = await _authorRepository.GetBooksByAuthorIdAsync(authorId);
-            return books ?? new List<Book>(); // Возвращаем пустой список, если книги не найдены
+            return books ?? new List<Book>(); 
         }
     }
 }

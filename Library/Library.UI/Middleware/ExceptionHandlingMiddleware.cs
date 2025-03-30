@@ -20,11 +20,11 @@ public class ExceptionHandlingMiddleware
     {
         try
         {
-            await _next(context); // передача запроса дальше
+            await _next(context); 
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Произошла ошибка"); // логируем ошибку
+            _logger.LogError(ex, "An error occurred");  
             await HandleExceptionAsync(context, ex);
         }
     }
@@ -34,7 +34,7 @@ public class ExceptionHandlingMiddleware
         context.Response.ContentType = "application/json";
         context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
-        var response = new { error = "Внутренняя ошибка сервера", details = exception.Message };
+        var response = new { error = "Internal Server Error", details = exception.Message };
         return context.Response.WriteAsync(JsonSerializer.Serialize(response));
     }
 }

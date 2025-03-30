@@ -26,7 +26,7 @@ public class OverdueBookNotifier : BackgroundService
                     var context = scope.ServiceProvider.GetRequiredService<LibraryDbContext>();
 
                     var overdueLoans = await context.UserBooks
-                        .Include(bl => bl.Book)  // Подгружаем связанные книги
+                        .Include(bl => bl.Book)   
                         .Where(bl => bl.ReturnBy < DateTime.UtcNow && bl.ReturnedAt == null)
                         .ToListAsync(stoppingToken);
 
@@ -40,7 +40,7 @@ public class OverdueBookNotifier : BackgroundService
 
                         _logger.LogWarning($"Book '{loan.Book.Title}' is expired by {loan.UserId}");
 
-                        // TODO: Здесь можно добавить отправку email или push-уведомления
+
                     }
                 }
             }
@@ -49,7 +49,7 @@ public class OverdueBookNotifier : BackgroundService
                 _logger.LogError(ex, "Error checking expired books");
             }
 
-            await Task.Delay(TimeSpan.FromHours(1), stoppingToken); // Проверяем раз в час
+            await Task.Delay(TimeSpan.FromHours(1), stoppingToken); 
         }
     }
 }

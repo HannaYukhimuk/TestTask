@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7C0213B8-F56A-437F-8C0F-06E5AD2F210B}|Library.Tests\\Library.Tests.csproj|c:\\users\\user\\desktop\\clown\\testtask\\library\\library.tests\\bookrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C0213B8-F56A-437F-8C0F-06E5AD2F210B}|Library.Tests\\Library.Tests.csproj|solutionrelative:library.tests\\bookrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7C0213B8-F56A-437F-8C0F-06E5AD2F210B}|Library.Tests\\Library.Tests.csproj|c:\\users\\user\\desktop\\clown\\testtask\\library\\library.tests\\bookservertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7C0213B8-F56A-437F-8C0F-06E5AD2F210B}|Library.Tests\\Library.Tests.csproj|solutionrelative:library.tests\\bookservertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C0213B8-F56A-437F-8C0F-06E5AD2F210B}|Library.Tests\\Library.Tests.csproj|c:\\users\\user\\desktop\\clown\\testtask\\library\\library.tests\\bookrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C0213B8-F56A-437F-8C0F-06E5AD2F210B}|Library.Tests\\Library.Tests.csproj|solutionrelative:library.tests\\bookrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7714C432-6B13-4BE4-BEE4-5DECADF54164}|Library.UI\\Library.UI.csproj|c:\\users\\user\\desktop\\clown\\testtask\\library\\library.ui\\service\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -174,7 +174,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 260,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -203,13 +203,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "BookServerTests.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Tests\\BookServerTests.cs",
               "RelativeDocumentMoniker": "Library.Tests\\BookServerTests.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Tests\\BookServerTests.cs*",
-              "RelativeToolTip": "Library.Tests\\BookServerTests.cs*",
-              "ViewState": "AgIAAF8AAAAAAAAAAAAkwGgAAAAlAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Tests\\BookServerTests.cs",
+              "RelativeToolTip": "Library.Tests\\BookServerTests.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAAwCQAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-30T15:29:20.831Z",
               "EditorCaption": ""
@@ -229,13 +229,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "BookRepositoryTests.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Tests\\BookRepositoryTests.cs",
               "RelativeDocumentMoniker": "Library.Tests\\BookRepositoryTests.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Tests\\BookRepositoryTests.cs*",
-              "RelativeToolTip": "Library.Tests\\BookRepositoryTests.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAiAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\user\\Desktop\\CLOWN\\TestTask\\Library\\Library.Tests\\BookRepositoryTests.cs",
+              "RelativeToolTip": "Library.Tests\\BookRepositoryTests.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBsAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-30T12:31:09.261Z",
               "EditorCaption": ""

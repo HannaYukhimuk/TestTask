@@ -32,12 +32,11 @@ builder.Services.AddValidatorsFromAssemblyContaining<BookCreateDtoValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<AuthorValidator>();
 
 
-// Добавляем Swagger
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Library API", Version = "v1" });
-
-    // Добавляем поддержку Bearer токена для Swagger
+     
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
@@ -114,8 +113,8 @@ app.UseHttpsRedirection();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 
-app.UseAuthentication(); // Включаем аутентификацию
-app.UseAuthorization();  // Включаем авторизацию
+app.UseAuthentication();  
+app.UseAuthorization();   
 
 app.MapControllers();
 

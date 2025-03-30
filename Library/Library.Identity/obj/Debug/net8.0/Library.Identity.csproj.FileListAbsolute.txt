@@ -345,3 +345,7 @@ C:\Users\user\Desktop\TestTask\Library\Library.Identity\obj\Debug\net8.0\Library
 C:\Users\user\Desktop\TestTask\Library\Library.Identity\obj\Debug\net8.0\Library.Identity.genruntimeconfig.cache
 C:\Users\user\Desktop\TestTask\Library\Library.Identity\obj\Debug\net8.0\ref\Library.Identity.dll
 C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Identity\bin\Debug\net8.0\Scalar.AspNetCore.dll
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Identity\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Identity\bin\Debug\net8.0\AutoMapper.xml
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Identity\bin\Debug\net8.0\Library.Domain.dll.config
+C:\Users\user\Desktop\CLOWN\TestTask\Library\Library.Identity\bin\Debug\net8.0\AutoMapper.pdb

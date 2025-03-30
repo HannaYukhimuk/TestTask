@@ -46,5 +46,21 @@ namespace Library.UI.Repositories
         {
             return await _context.Authors.CountAsync();
         }
+
+        public async Task<Author> FindOrCreateAuthorAsync(string firstName, string lastName)
+        {
+            var author = await _context.Authors
+                .FirstOrDefaultAsync(a => a.FirstName == firstName && a.LastName == lastName);
+
+            if (author == null)
+            {
+                author = new Author { FirstName = firstName, LastName = lastName };
+                _context.Authors.Add(author);
+                await _context.SaveChangesAsync();
+            }
+
+            return author;
+        }
+
     }
 }

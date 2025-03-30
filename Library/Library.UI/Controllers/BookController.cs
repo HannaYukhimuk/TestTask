@@ -12,25 +12,31 @@ using Library.Identity.Data;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using Library.Domain.Repositories;
+using AutoMapper;
 
 namespace Library.UI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class BookController : ControllerBase
     {
         private readonly IBookRepository _bookRepository;
         private readonly IAuthorRepository _authorRepository;
         private readonly IMemoryCache _cache;
         private readonly IWebHostEnvironment _env;
+        private readonly IMapper _mapper;  
 
-        public BookController(IBookRepository bookRepository, IAuthorRepository authorRepository, IMemoryCache cache, IWebHostEnvironment env)
-        {
-            _bookRepository = bookRepository;
-            _authorRepository = authorRepository;
-            _cache = cache;
-            _env = env;
-        }
+            public BookController(IBookRepository bookRepository, IAuthorRepository authorRepository, IMemoryCache cache, IWebHostEnvironment env, IMapper mapper)
+            {
+                _bookRepository = bookRepository;
+                _authorRepository = authorRepository;
+                _cache = cache;
+                _env = env;
+                _mapper = mapper;  
+            }
+        
+
 
         [HttpGet]
         public async Task<ActionResult<List<object>>> GetBooks(int pageNumber = 1, int pageSize = 10)
@@ -73,10 +79,17 @@ namespace Library.UI.Controllers
             {
                 return BadRequest("Incorrect book data.");
             }
-
+             
+            var book = _mapper.Map<Book>(newBookDto);
+             
+            var author = await _authorRepository.FindOrCreateAuthorAsync(newBookDto.FirstName, newBookDto.LastName);
+            book.Author = author;  
+             
             var newBook = await _bookRepository.AddBookAsync(newBookDto);
+
             return CreatedAtAction(nameof(GetBookById), new { id = newBook.Id }, newBook);
         }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateBook(int id, [FromBody] Book updatedBook)

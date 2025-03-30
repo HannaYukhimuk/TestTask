@@ -12,5 +12,7 @@ namespace Library.Domain.Repositories
         Task UpdateAuthor(Author author);
         Task DeleteAuthor(Author author);
         Task<int> GetTotalAuthors();
+        Task<Author> FindOrCreateAuthorAsync(string firstName, string lastName);
+
     }
 }

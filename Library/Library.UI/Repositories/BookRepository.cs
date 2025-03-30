@@ -10,16 +10,19 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using AutoMapper;
+using Library.Domain;
 
 namespace Library.UI.Repositories
 {
     public class BookRepository : IBookRepository
     {
         private readonly LibraryDbContext _context;
-
-        public BookRepository(LibraryDbContext context)
+        private readonly IMapper _mapper;
+        public BookRepository(LibraryDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<object> GetBooksPagedAsync(int pageNumber, int pageSize)
@@ -82,18 +85,31 @@ namespace Library.UI.Repositories
 
         public async Task<Book> AddBookAsync(BookCreateDto newBookDto)
         {
-            var book = new Book
+            var book = _mapper.Map<Book>(newBookDto); 
+
+            var author = await _context.Authors
+                .FirstOrDefaultAsync(a => a.FirstName == newBookDto.FirstName && a.LastName == newBookDto.LastName);
+
+            if (author == null)
             {
-                ISBN = newBookDto.ISBN,
-                Title = newBookDto.Title,
-                Genre = newBookDto.Genre,
-                Description = newBookDto.Description
-            };
+                author = new Author
+                {
+                    FirstName = newBookDto.FirstName,
+                    LastName = newBookDto.LastName,
+
+                };
+                _context.Authors.Add(author);
+                await _context.SaveChangesAsync();
+            }
+
+            book.Author = author;  
 
             _context.Books.Add(book);
             await _context.SaveChangesAsync();
             return book;
         }
+
+
 
         public async Task<bool> UpdateBookAsync(int id, Book updatedBook)
         {

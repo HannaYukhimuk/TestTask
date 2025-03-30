@@ -1106,6 +1106,14 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "AutoMapper/10.0.0.0": {
+        "runtime": {
+          "AutoMapper.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.1.1.0"
+          }
+        }
       }
     }
   },
@@ -1698,6 +1706,11 @@
     },
     "Library.Domain/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AutoMapper/10.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

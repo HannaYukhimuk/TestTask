@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using AutoMapper;
+using AutoMapper;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -75,13 +78,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 
 
+builder.Services.AddAutoMapper(typeof(BookProfile));
+
 builder.Services.AddHostedService<OverdueBookNotifier>();
 
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
-
 
 builder.Services.AddMemoryCache();
 
